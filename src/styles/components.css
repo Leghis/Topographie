@@ -25,13 +25,21 @@
 
   /* ------------------------------------------------------------- en-tête */
 
+  /*
+   * Fond opaque et aucun filtre.
+   *
+   * Un `backdrop-filter` posé ici obligeait le navigateur à refiltrer toute la
+   * zone située derrière l'en-tête à chaque image du tracé des courbes : au
+   * chargement l'en-tête clignotait, et son contenu ne se peignait parfois
+   * qu'au survol. Le fond translucide laissait en plus voir les courbes bouger
+   * au travers. Un aplat suffit : le relief passe simplement dessous.
+   */
   .site-header {
     position: sticky;
     inset-block-start: 0;
     z-index: var(--z-header);
-    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    background: var(--paper);
     border-block-end: var(--hairline) solid var(--rule);
-    backdrop-filter: blur(10px);
   }
 
   .site-header__inner {

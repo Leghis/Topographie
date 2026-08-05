@@ -12,6 +12,9 @@
     z-index: var(--z-terrain);
     overflow: hidden;
     pointer-events: none;
+    /* Les repeintures du tracé restent enfermées ici : sans cela elles
+       invalidaient la zone de l'en-tête collant posé au-dessus. */
+    contain: paint;
     /* Le relief s'efface vers le bas pour que le texte reste toujours net. */
     -webkit-mask-image: var(--terrain-mask, none);
     mask-image: var(--terrain-mask, none);
@@ -61,15 +64,20 @@
      intercalaires apparaissent derrière. Une seule séquence orchestrée au
      chargement plutôt que dix effets dispersés au défilement. */
   @media (prefers-reduced-motion: no-preference) {
-    .terrain-field[data-draw] .terrain__level {
-      animation: terrain-appear var(--dur-3) var(--ease-out) both;
-      animation-delay: calc(var(--level, 0) * 34ms);
+    /* L'ensemble du relief apparaît en une seule animation d'opacité, sur le
+       conteneur. Animer les vingt-huit groupes de courbes séparément forçait
+       autant de repeintures du SVG par image, pour un effet que le tracé des
+       maîtresses rend déjà. */
+    .terrain-field[data-draw] {
+      animation: terrain-appear 640ms var(--ease-out) both;
     }
 
+    /* Le levé qui se construit : réservé aux courbes maîtresses, soit une
+       trentaine de tracés au lieu de deux cents. */
     .terrain-field[data-draw] .terrain__level--index path {
       stroke-dasharray: 1;
-      animation: terrain-draw 1100ms var(--ease-out) both;
-      animation-delay: calc(var(--level, 0) * 34ms);
+      animation: terrain-draw 900ms var(--ease-out) both;
+      animation-delay: calc(120ms + var(--level, 0) * 24ms);
     }
   }
 
