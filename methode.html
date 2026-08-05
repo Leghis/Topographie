@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!--@ src/partials/head.html {
+      "titre": "Méthode et protocole de bornage au Cameroun | MLS TOPO SARL",
+      "description": "Comment se déroule un bornage d'immatriculation au Cameroun : décret n° 76-165, commission consultative, bornage contradictoire, procès-verbal, affichage de 30 jours, titre foncier. Systèmes de référence UTM 32N et 33N, mesure en base et mobile.",
+      "chemin": "methode.html"
+    } -->
+  </head>
+
+  <body>
+    <!--@ src/partials/header.html -->
+
+    <main id="contenu">
+      <section class="page-head">
+        <div class="shell">
+          <p class="eyebrow">Méthode</p>
+          <h1 class="page-head__title">Ce que dit la loi,<br />et ce que nous en faisons.</h1>
+          <p class="lede">
+            Beaucoup de litiges fonciers au Cameroun ne viennent pas d'une mauvaise mesure mais
+            d'une procédure incomplète. Cette page décrit le chemin réel jusqu'au titre foncier, et
+            la façon dont nous travaillons pour que votre dossier tienne.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- Le protocole                                                      -->
+      <!-- ================================================================ -->
+      <section class="section section--flush-top">
+        <div class="shell">
+          <div class="split split--sticky">
+            <div class="stack stack--m reveal">
+              <p class="eyebrow">Immatriculation</p>
+              <h2>Les cinq étapes<br />du bornage.</h2>
+              <p>
+                La procédure est fixée par le <strong>décret n° 76-165 du 27 avril 1976</strong>,
+                qui définit les conditions d'obtention du titre foncier. Elle est instruite par le
+                ministère des Domaines, du Cadastre et des Affaires foncières.
+              </p>
+              <div class="encart">
+                <p class="encart__label">Règle à connaître</p>
+                <p>
+                  À peine de nullité, aucun bornage d'immatriculation ne peut être effectué par le
+                  géomètre seul. Si l'on vous propose un bornage « rapide », sans commission ni
+                  riverains, ce que vous achetez ne vaudra rien le jour d'une contestation.
+                </p>
+              </div>
+            </div>
+
+            <ol class="protocole">
+              <li class="protocole__step reveal">
+                <p class="protocole__num">01</p>
+                <div>
+                  <h3>Dépôt du dossier</h3>
+                  <p>
+                    Le dossier complet est déposé à la délégation départementale des Domaines du
+                    lieu de situation de l'immeuble. Nous contrôlons les pièces avant le dépôt :
+                    c'est là que se perdent le plus de mois.
+                  </p>
+                </div>
+              </li>
+              <li class="protocole__step reveal">
+                <p class="protocole__num">02</p>
+                <div>
+                  <h3>Commission consultative</h3>
+                  <p>
+                    La commission examine la demande, puis descend sur le terrain pour constater
+                    les limites et la mise en valeur effective. En cas d'occupation ou
+                    d'exploitation avérée, elle fait immédiatement procéder au bornage.
+                  </p>
+                </div>
+              </li>
+              <li class="protocole__step reveal">
+                <p class="protocole__num">03</p>
+                <div>
+                  <h3>Bornage contradictoire</h3>
+                  <p>
+                    Le bornage se fait en présence des riverains. Nous levons les limites, nous
+                    matérialisons les bornes et chaque point est reconnu sur place. Les frais de
+                    bornage sont à la charge du requérant.
+                  </p>
+                </div>
+              </li>
+              <li class="protocole__step reveal">
+                <p class="protocole__num">04</p>
+                <div>
+                  <h3>Plan et procès-verbal</h3>
+                  <p>
+                    À l'issue du bornage, le géomètre dresse un plan et un procès-verbal. Le PV est
+                    signé par le géomètre, le président de la commission consultative, le chef de
+                    service départemental des Affaires foncières, le chef du village concerné et
+                    les riverains.
+                  </p>
+                </div>
+              </li>
+              <li class="protocole__step reveal">
+                <p class="protocole__num">05</p>
+                <div>
+                  <h3>Affichage, puis immatriculation</h3>
+                  <p>
+                    Un avis est affiché publiquement pendant trente jours pour recueillir
+                    d'éventuelles oppositions. En l'absence d'opposition ou de litige, le
+                    conservateur foncier procède à l'immatriculation et délivre la copie du titre
+                    après paiement de la redevance.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- Géodésie                                                          -->
+      <!-- ================================================================ -->
+      <section class="section section--slate on-slate" id="geodesie">
+        <div class="terrain-field section__terrain" aria-hidden="true">
+          <!--@ src/generated/terrain-band.svg -->
+        </div>
+
+        <div class="shell mesure">
+          <div class="section-head section-head--split reveal">
+            <div class="stack stack--s">
+              <p class="eyebrow eyebrow--data">Géodésie</p>
+              <h2>À quoi vos coordonnées<br />sont rattachées.</h2>
+            </div>
+            <p class="lede">
+              Un point n'a de sens que rapporté à un système. Un plan levé dans un repère local
+              inventé pour l'occasion ne pourra jamais être recoupé avec le cadastre, ni avec le
+              levé du voisin.
+            </p>
+          </div>
+
+          <div class="grid" style="--grid-min: 16rem">
+            <article class="fiche reveal">
+              <p class="fiche__key">Ellipsoïde et datum</p>
+              <p class="fiche__value">WGS 84</p>
+              <p class="fiche__note">
+                Référence des mesures GNSS modernes. C'est sur elle que sont exprimés les
+                rattachements que nous livrons.
+              </p>
+            </article>
+
+            <article class="fiche reveal" style="--reveal-delay: 70ms">
+              <p class="fiche__key">Projection</p>
+              <p class="fiche__value">UTM 32N &amp; 33N</p>
+              <p class="fiche__note">
+                Zone 32N (EPSG:32632) pour l'ouest du pays, Douala comprise. Zone 33N pour les
+                régions orientales. Nous précisons toujours la zone employée sur le plan.
+              </p>
+            </article>
+
+            <article class="fiche reveal" style="--reveal-delay: 140ms">
+              <p class="fiche__key">Réseau de référence</p>
+              <p class="fiche__value">Base + mobile</p>
+              <p class="fiche__note">
+                Le Cameroun ne dispose pas de réseau national de stations permanentes. Toute mesure
+                de précision suppose donc d'installer sa propre base sur un point connu.
+              </p>
+            </article>
+
+            <article class="fiche reveal" style="--reveal-delay: 210ms">
+              <p class="fiche__key">Points anciens</p>
+              <p class="fiche__value">Gauss Laborde</p>
+              <p class="fiche__note">
+                Douala conserve une centaine de points de l'ancien réseau Gauss Laborde et soixante
+                points en UTM 32, rattachés au WGS 84 lors de la mission IGN de 2001.
+              </p>
+            </article>
+          </div>
+
+          <p class="mesure__note reveal">
+            Les précisions atteintes dépendent de la classe d'instrument, de la longueur de la base,
+            de la durée d'observation et du couvert végétal. Nous les annonçons au devis et nous les
+            rappelons, mesurées, dans le rapport technique de fin de mission. Un cabinet qui promet
+            une précision sans connaître votre site vous vend une phrase, pas un résultat.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- Drone                                                             -->
+      <!-- ================================================================ -->
+      <section class="section" id="drone">
+        <div class="shell">
+          <div class="split split--reverse">
+            <div class="stack stack--m reveal">
+              <p class="eyebrow">Travail aérien</p>
+              <h2>Le drone est un outil,<br />pas une autorisation.</h2>
+              <p>
+                La photogrammétrie par drone fait gagner des jours sur une grande emprise. Mais au
+                Cameroun, elle n'est pas libre : l'exploitation d'aéronefs télépilotés reste
+                encadrée par une instruction de la CCAA de novembre 2016, en attendant une loi
+                dédiée.
+              </p>
+              <p>
+                Chaque opération ponctuelle de travail aérien fait l'objet d'une demande
+                d'autorisation, instruite avec le ministère de la Défense. Nous préférons vous
+                annoncer ce délai au devis plutôt que de le découvrir la veille du vol.
+              </p>
+            </div>
+
+            <ul class="zones reveal">
+              <li class="zones__item zones__item--base">
+                <span class="zones__name">Autorisation CCAA</span>
+                <span class="zones__meta">Par opération</span>
+              </li>
+              <li class="zones__item">
+                <span class="zones__name">Plafond</span><span class="zones__meta">120 m — 400 ft</span>
+              </li>
+              <li class="zones__item">
+                <span class="zones__name">Créneau</span><span class="zones__meta">Vol de jour</span>
+              </li>
+              <li class="zones__item">
+                <span class="zones__name">Instruction</span><span class="zones__meta">Environ 30 jours</span>
+              </li>
+              <li class="zones__item">
+                <span class="zones__name">Livrables</span><span class="zones__meta">Orthophoto · nuage · MNT</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- Livrables                                                         -->
+      <!-- ================================================================ -->
+      <section class="section section--tight" id="livrables">
+        <div class="shell">
+          <div class="section-head reveal">
+            <p class="eyebrow">Livrables</p>
+            <h2>Ce que vous recevez</h2>
+            <p class="lede">
+              Nous livrons des fichiers ouvrables et une note qui explique comment ils ont été
+              obtenus. Vous devez pouvoir confier votre dossier à un autre cabinet sans repartir de
+              zéro.
+            </p>
+          </div>
+
+          <ul class="livrables reveal">
+            <li><span class="livrables__fmt">DWG</span> Plan vectoriel, calques nommés, échelle et cartouche renseignés</li>
+            <li><span class="livrables__fmt">PDF</span> Plan mis en page, prêt à imprimer et à joindre au dossier</li>
+            <li><span class="livrables__fmt">CSV</span> Semis de points avec matricule, X, Y, Z et code d'objet</li>
+            <li><span class="livrables__fmt">SHP</span> Couches SIG, avec leur table attributaire documentée</li>
+            <li><span class="livrables__fmt">PV</span> Procès-verbal de bornage, signé des parties requises</li>
+            <li><span class="livrables__fmt">NOTE</span> Rapport technique : matériel, méthode, rattachement, contrôles</li>
+          </ul>
+        </div>
+      </section>
+
+      <!--@ src/partials/cta.html {
+        "surtitre": "Votre situation",
+        "titre": "Où en est votre dossier ?",
+        "texte": "Terrain acheté sans plan, limites contestées par un voisin, titre en cours depuis des années, morcellement à faire : dites-nous où vous en êtes. Nous vous indiquerons l'étape suivante, même si elle ne passe pas par nous."
+      } -->
+    </main>
+
+    <!--@ src/partials/footer.html -->
+    <!--@ src/partials/chrome.html -->
+  </body>
+</html>

@@ -1,0 +1,16 @@
+/*
+ * Ordre des couches déclaré une seule fois, en tête : la cascade devient
+ * prévisible et la spécificité reste plate. Aucun `!important` dans le projet,
+ * hors la neutralisation du mouvement dans base.css — une préférence
+ * utilisateur doit gagner contre tout le reste.
+ */
+@layer tokens, base, layout, components, pages;
+
+/* Chaque fichier déclare lui-même sa couche : on peut l'ouvrir seul et savoir
+   où il se range. */
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+@import './signature.css';
+@import './pages.css';

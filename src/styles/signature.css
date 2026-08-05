@@ -1,0 +1,252 @@
+@layer components {
+  /* ==========================================================================
+     LE TERRAIN
+     Modèle numérique de terrain en courbes de niveau, généré au build et
+     inliné dans le document. Équidistance 5 m, courbes maîtresses tous les
+     25 m — les conventions du dessin topographique, pas un motif décoratif.
+     ========================================================================== */
+
+  .terrain-field {
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-terrain);
+    overflow: hidden;
+    pointer-events: none;
+    /* Le relief s'efface vers le bas pour que le texte reste toujours net. */
+    -webkit-mask-image: var(--terrain-mask, none);
+    mask-image: var(--terrain-mask, none);
+  }
+
+  .terrain {
+    width: 100%;
+    height: 100%;
+  }
+
+  .terrain__level {
+    opacity: var(--terrain-line-opacity);
+  }
+
+  .terrain__level path {
+    fill: none;
+    stroke: var(--terrain-line);
+    stroke-width: 0.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    /* Le trait garde son épaisseur quel que soit l'agrandissement du SVG :
+       une courbe de niveau est un filet, pas une forme. */
+    vector-effect: non-scaling-stroke;
+  }
+
+  .terrain__level--index {
+    opacity: var(--terrain-index-opacity);
+  }
+
+  .terrain__level--index path {
+    stroke: var(--terrain-index);
+    stroke-width: 1.4;
+  }
+
+  .terrain__cotes text {
+    fill: var(--terrain-cote);
+    stroke: var(--terrain-knockout);
+    stroke-width: 5;
+    font-family: var(--font-mono);
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    opacity: 0.9;
+  }
+
+  /* --- le levé qui se construit --------------------------------------------
+     Les courbes maîtresses se tracent de la cote basse vers la haute, les
+     intercalaires apparaissent derrière. Une seule séquence orchestrée au
+     chargement plutôt que dix effets dispersés au défilement. */
+  @media (prefers-reduced-motion: no-preference) {
+    .terrain-field[data-draw] .terrain__level {
+      animation: terrain-appear var(--dur-3) var(--ease-out) both;
+      animation-delay: calc(var(--level, 0) * 34ms);
+    }
+
+    .terrain-field[data-draw] .terrain__level--index path {
+      stroke-dasharray: 1;
+      animation: terrain-draw 1100ms var(--ease-out) both;
+      animation-delay: calc(var(--level, 0) * 34ms);
+    }
+  }
+
+  @keyframes terrain-appear {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes terrain-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* ==========================================================================
+     LA BARRE D'ÉTAT GÉODÉSIQUE
+     Chrome d'instrument, pas contenu de page : elle reste sur l'ardoise quelle
+     que soit la section derrière, comme la barre de statut d'un logiciel de
+     terrain. Les coordonnées sont celles du relief affiché, rapportées à
+     l'origine réelle de Douala en UTM 32N.
+     ========================================================================== */
+
+  .geo-status {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: var(--z-status);
+    display: none;
+    align-items: center;
+    gap: clamp(var(--space-s), 2vw, var(--space-l));
+    padding: 0.45rem var(--gutter);
+    border-block-start: var(--hairline) solid var(--chrome-rule);
+    background: var(--slate);
+    color: var(--chrome-text-2);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* Sur petit écran, le bas de l'écran sert à appeler, pas à afficher des
+     coordonnées : la barre d'action prend sa place. */
+  @media (min-width: 64rem) and (min-height: 34rem) {
+    .geo-status {
+      display: flex;
+    }
+  }
+
+  .geo-status__field {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45em;
+  }
+
+  .geo-status__key {
+    color: var(--chrome-text-3);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-caps);
+  }
+
+  .geo-status__value {
+    color: var(--visee-bright);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .geo-status__unit {
+    color: var(--chrome-text-3);
+  }
+
+  .geo-status__spacer {
+    flex: 1;
+  }
+
+  .geo-status__epsg {
+    color: var(--chrome-text-3);
+  }
+
+  /* ==========================================================================
+     LE RÉTICULE DE VISÉE
+     Le curseur devient une visée : deux fils croisés et la lecture des
+     coordonnées au point pointé. Réservé au pointeur fin — sur tactile il n'y
+     a pas de curseur à suivre, et l'effet coûterait sans rien apporter.
+     ========================================================================== */
+
+  .reticle {
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-reticle);
+    display: none;
+    pointer-events: none;
+    contain: strict;
+  }
+
+  @media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .reticle {
+      display: block;
+    }
+  }
+
+  .reticle__frame {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--dur-2) var(--ease-out);
+    will-change: opacity;
+  }
+
+  .reticle[data-active] .reticle__frame {
+    opacity: 1;
+  }
+
+  .reticle__line {
+    position: absolute;
+    background: var(--data);
+    opacity: 0.42;
+  }
+
+  .reticle__line--h {
+    inset-inline: 0;
+    height: 1px;
+    transform: translateY(var(--ry, 0));
+  }
+
+  .reticle__line--v {
+    inset-block: 0;
+    width: 1px;
+    transform: translateX(var(--rx, 0));
+  }
+
+  /* Le point visé : un carré ouvert, comme le réticule d'une lunette. Le
+     centre reste vide — on doit voir ce que l'on vise, et les deux fils
+     désignent déjà le point. */
+  .reticle__mark {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: 22px;
+    height: 22px;
+    margin: -11px 0 0 -11px;
+    border: 1px solid var(--data);
+    transform: translate(var(--rx, 0), var(--ry, 0));
+  }
+
+  .reticle__readout {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    margin: 18px 0 0 18px;
+    padding: 0.3rem 0.5rem;
+    background: var(--slate);
+    color: var(--visee-bright);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+    transform: translate(var(--rx, 0), var(--ry, 0));
+  }
+
+  .reticle__readout dl {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0 0.6em;
+    margin: 0;
+  }
+
+  .reticle__readout dt {
+    color: var(--chrome-text-3);
+  }
+
+  .reticle__readout dd {
+    margin: 0;
+    text-align: end;
+  }
+}

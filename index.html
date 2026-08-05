@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!--@ src/partials/head.html {
+      "titre": "MLS TOPO SARL — Géomètre-topographe à Douala, Cameroun",
+      "description": "Levé topographique, bornage et mesure parcellaire, plan cadastral, cartographie SIG, relevé par drone et suivi de chantier. Cabinet établi à Douala, intervention partout au Cameroun. 697 55 76 89.",
+      "chemin": ""
+    } -->
+  </head>
+
+  <body>
+    <!--@ src/partials/header.html -->
+
+    <main id="contenu">
+      <!-- ================================================================ -->
+      <!-- Ouverture : le relief se lève, comme un levé qui se construit.    -->
+      <!-- ================================================================ -->
+      <section class="hero" data-reticle-zone>
+        <div class="terrain-field hero__terrain" data-draw>
+          <!--@ src/generated/terrain-hero.svg -->
+        </div>
+
+        <div class="reticle" data-reticle>
+          <div class="reticle__frame">
+            <div class="reticle__line reticle__line--h"></div>
+            <div class="reticle__line reticle__line--v"></div>
+            <div class="reticle__mark"></div>
+            <div class="reticle__readout">
+              <dl>
+                <dt>X</dt>
+                <dd><span data-geo="e">585 238</span> E</dd>
+                <dt>Y</dt>
+                <dd><span data-geo="n">447 816</span> N</dd>
+                <dt>Z</dt>
+                <dd><span data-geo="z">92,4</span> m</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="shell hero__inner">
+          <p class="eyebrow">MLS TOPO SARL · Douala, Cameroun</p>
+
+          <h1 class="hero__title">Poser la limite exacte, et la rendre incontestable.</h1>
+
+          <p class="hero__lede">
+            Levés topographiques, bornage, plans cadastraux, cartographie SIG et suivi de chantier.
+            Nous mesurons le terrain, nous produisons les pièces, et nous vous accompagnons jusqu'à
+            l'immatriculation. Établis à Douala, nous intervenons sur tout le territoire.
+          </p>
+
+          <p class="cluster hero__actions">
+            <a class="btn btn--primary" href="tel:+237697557689">
+              <!--@ src/partials/icon-phone.html -->
+              Appeler le 697 55 76 89
+            </a>
+            <a
+              class="btn btn--ghost"
+              href="https://wa.me/237697557689?text=Bonjour%20MLS%20TOPO%2C%20je%20souhaite%20un%20devis."
+              rel="noopener"
+            >
+              <!--@ src/partials/icon-whatsapp.html -->
+              Écrire sur WhatsApp
+            </a>
+          </p>
+
+          <!--
+            Le cartouche : le bloc de titre que porte tout plan topographique,
+            en bas à droite de la feuille. Ici il tient lieu de carte d'identité
+            du cabinet.
+          -->
+          <dl class="cartouche">
+            <div class="cartouche__cell">
+              <dt>Système de référence</dt>
+              <dd>WGS 84 · UTM 32N</dd>
+            </div>
+            <div class="cartouche__cell">
+              <dt>Code EPSG</dt>
+              <dd>32632</dd>
+            </div>
+            <div class="cartouche__cell">
+              <dt>Équidistance</dt>
+              <dd>5 m</dd>
+            </div>
+            <div class="cartouche__cell">
+              <dt>Siège</dt>
+              <dd>Douala, Littoral</dd>
+            </div>
+            <div class="cartouche__cell">
+              <dt>Intervention</dt>
+              <dd>Tout le Cameroun</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- Trois métiers, trois traitements — pas quinze cartes identiques.  -->
+      <!-- ================================================================ -->
+      <section class="section" id="metiers">
+        <div class="shell">
+          <div class="section-head section-head--split reveal">
+            <div class="stack stack--s">
+              <p class="eyebrow">Ce que nous faisons</p>
+              <h2>Trois métiers, quinze prestations.</h2>
+            </div>
+            <p class="lede">
+              La mesure sur le terrain, le traitement des données au bureau, et le négoce foncier et
+              instrumental. Une même chaîne, du piquet planté jusqu'au fichier livré.
+            </p>
+          </div>
+
+          <ol class="poles">
+            <li class="pole pole--large reveal">
+              <p class="pole__ref">A</p>
+              <h3 class="pole__title">Sur le terrain</h3>
+              <p class="pole__text">
+                Nous venons mesurer. Station totale, GNSS en base et mobile, niveau optique, drone
+                quand le site le justifie. C'est là que se décide la précision de tout ce qui
+                suivra.
+              </p>
+              <ul class="pole__list">
+                <li>Levé topographique de terrain</li>
+                <li>Mesure parcellaire et bornage</li>
+                <li>Relevé altimétrique</li>
+                <li>Nivellement de terrain</li>
+                <li>Utilisation de la station totale</li>
+                <li>Traitement des données GPS</li>
+                <li>Relevé par drone</li>
+              </ul>
+              <a class="pole__link" href="services.html#terrain">Voir les 7 prestations de terrain</a>
+            </li>
+
+            <li class="pole pole--medium reveal" style="--reveal-delay: 90ms">
+              <p class="pole__ref">B</p>
+              <h3 class="pole__title">Au bureau</h3>
+              <p class="pole__text">
+                Les points levés deviennent des surfaces, des volumes, des couches et des pièces
+                opposables. C'est le travail qu'on ne voit pas et qui fait tenir un dossier.
+              </p>
+              <ul class="pole__list">
+                <li>Calcul de surfaces et de volumes</li>
+                <li>Plan cadastral</li>
+                <li>Cartographie SIG</li>
+                <li>Études de routes et de voiries</li>
+                <li>Suivi et contrôle de chantier</li>
+                <li>Rapports techniques</li>
+              </ul>
+              <a class="pole__link" href="services.html#bureau">Voir les 6 prestations de bureau</a>
+            </li>
+
+            <li class="pole pole--wide reveal" style="--reveal-delay: 150ms">
+              <p class="pole__ref">C</p>
+              <h3 class="pole__title">Le négoce</h3>
+              <p class="pole__text">
+                Deux activités qui prolongent le métier : des terrains dont nous connaissons
+                l'historique parce que nous les avons mesurés, et les instruments avec lesquels
+                nous travaillons nous-mêmes.
+              </p>
+              <div class="pole__pair">
+                <a class="pole__offer" href="terrains.html">
+                  <span class="pole__offer-title">Vente de terrains</span>
+                  <span class="pole__offer-text"
+                    >Parcelles présentées avec leur situation juridique réelle, plan de situation et
+                    superficie mesurée.</span
+                  >
+                </a>
+                <a class="pole__offer" href="materiel.html">
+                  <span class="pole__offer-title">Vente d'appareils topographiques</span>
+                  <span class="pole__offer-text"
+                    >Stations totales, GNSS, niveaux et accessoires, livrés réglés et pris en main
+                    avec vous.</span
+                  >
+                </a>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- Le protocole. Numéroter a du sens ici : c'est une vraie séquence, -->
+      <!-- et sauter une étape rend le bornage nul.                          -->
+      <!-- ================================================================ -->
+      <section class="section section--tight" id="bornage">
+        <div class="shell">
+          <div class="split split--sticky">
+            <div class="stack stack--m reveal">
+              <p class="eyebrow">Le bornage, étape par étape</p>
+              <h2>Un bornage fait seul<br />ne vaut rien.</h2>
+              <p>
+                Au Cameroun, l'immatriculation foncière est régie par le
+                <strong>décret n° 76-165 du 27 avril 1976</strong>. Il pose une règle que beaucoup
+                de propriétaires découvrent trop tard : à peine de nullité, aucun bornage
+                d'immatriculation ne peut être effectué par le géomètre seul.
+              </p>
+              <p>
+                C'est pour cela que nous refusons les raccourcis. Un plan levé vite et sans les
+                parties présentes ne vous protège de rien le jour où un voisin conteste.
+              </p>
+              <p>
+                <a class="btn btn--ghost" href="methode.html">Lire le protocole complet</a>
+              </p>
+            </div>
+
+            <ol class="protocole">
+              <li class="protocole__step reveal">
+                <p class="protocole__num">01</p>
+                <div>
+                  <h3>Dépôt du dossier</h3>
+                  <p>
+                    La demande est déposée à la délégation départementale des Domaines du lieu de
+                    situation de l'immeuble. Nous vérifions les pièces avant le dépôt.
+                  </p>
+                </div>
+              </li>
+              <li class="protocole__step reveal">
+                <p class="protocole__num">02</p>
+                <div>
+                  <h3>Commission consultative</h3>
+                  <p>
+                    La commission examine la demande et descend sur le terrain pour constater les
+                    limites et la mise en valeur effective.
+                  </p>
+                </div>
+              </li>
+              <li class="protocole__step reveal">
+                <p class="protocole__num">03</p>
+                <div>
+                  <h3>Bornage contradictoire</h3>
+                  <p>
+                    Le bornage se fait en présence des riverains. Nous levons les limites, nous
+                    matérialisons les bornes, et chaque point est reconnu sur place.
+                  </p>
+                </div>
+              </li>
+              <li class="protocole__step reveal">
+                <p class="protocole__num">04</p>
+                <div>
+                  <h3>Plan et procès-verbal</h3>
+                  <p>
+                    Le PV est signé par le géomètre, le président de la commission consultative, le
+                    chef de service départemental des Affaires foncières, le chef du village et les
+                    riverains.
+                  </p>
+                </div>
+              </li>
+              <li class="protocole__step reveal">
+                <p class="protocole__num">05</p>
+                <div>
+                  <h3>Affichage, puis titre</h3>
+                  <p>
+                    Trente jours d'affichage public. Sans opposition, le conservateur foncier
+                    procède à l'immatriculation et délivre la copie du titre.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- La donnée. Bascule sur l'ardoise : c'est l'écran de la station,   -->
+      <!-- plus le papier du plan.                                           -->
+      <!-- ================================================================ -->
+      <section class="section section--slate on-slate" id="mesure">
+        <div class="terrain-field section__terrain" aria-hidden="true">
+          <!--@ src/generated/terrain-band.svg -->
+        </div>
+
+        <div class="shell mesure">
+          <div class="section-head section-head--split reveal">
+            <div class="stack stack--s">
+              <p class="eyebrow eyebrow--data">La mesure</p>
+              <h2>Le Cameroun n'a pas de réseau permanent.<br />Nous apportons le nôtre.</h2>
+            </div>
+            <p class="lede">
+              Faute de réseau national de stations GNSS permanentes, une mesure de précision se fait
+              ici en <strong>base et mobile</strong> : nous installons notre propre station de
+              référence sur un point rattaché, et le récepteur mobile lève par rapport à elle.
+            </p>
+          </div>
+
+          <div class="grid" style="--grid-min: 15rem">
+            <article class="fiche reveal">
+              <p class="fiche__key">Système de référence</p>
+              <p class="fiche__value">WGS 84</p>
+              <p class="fiche__note">
+                Projection UTM zone 32N (EPSG:32632) pour l'ouest du pays, Douala compris. Zone 33N
+                pour les régions de l'Est.
+              </p>
+            </article>
+
+            <article class="fiche reveal" style="--reveal-delay: 70ms">
+              <p class="fiche__key">Rattachement</p>
+              <p class="fiche__value">Base + mobile</p>
+              <p class="fiche__note">
+                Douala conserve une centaine de points du réseau Gauss Laborde et soixante points en
+                UTM 32, rattachés au WGS 84 lors de la mission IGN de 2001.
+              </p>
+            </article>
+
+            <article class="fiche reveal" style="--reveal-delay: 140ms">
+              <p class="fiche__key">Relevé par drone</p>
+              <p class="fiche__value">Sur autorisation</p>
+              <p class="fiche__note">
+                Chaque vol de travail aérien fait l'objet d'une autorisation de la CCAA, plafond
+                120 m, de jour. Nous intégrons ce délai au planning au lieu de le découvrir en cours
+                de mission.
+              </p>
+            </article>
+
+            <article class="fiche reveal" style="--reveal-delay: 210ms">
+              <p class="fiche__key">Livrables</p>
+              <p class="fiche__value">Pièces exploitables</p>
+              <p class="fiche__note">
+                Plan au format DWG et PDF, semis de points, modèle numérique de terrain, couches
+                SIG, note de calcul et rapport technique signé.
+              </p>
+            </article>
+          </div>
+
+          <p class="mesure__note reveal">
+            Les précisions atteintes dépendent de la classe d'instrument, de la longueur de la base
+            et des conditions de terrain. Elles sont annoncées au devis et rappelées dans le rapport
+            technique de chaque mission — jamais promises à l'aveugle.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- Zone d'intervention                                               -->
+      <!-- ================================================================ -->
+      <section class="section" id="zone">
+        <div class="shell">
+          <div class="split split--reverse">
+            <div class="stack stack--m reveal">
+              <p class="eyebrow">Où nous intervenons</p>
+              <h2>Basés à Douala.<br />Mobilisables partout.</h2>
+              <p>
+                Le Littoral est notre terrain quotidien : Douala et ses cinq arrondissements,
+                Bonabéri, la zone industrielle, la périphérie qui s'étend vers Yassa, Japoma et
+                Bonamoussadi.
+              </p>
+              <p>
+                Au-delà, nous nous déplaçons avec notre matériel sur l'ensemble du territoire. Pour
+                une mission éloignée, dites-nous la localité exacte : nous chiffrons le déplacement
+                séparément, sans le noyer dans le prix de la prestation.
+              </p>
+            </div>
+
+            <ul class="zones reveal">
+              <li class="zones__item zones__item--base">
+                <span class="zones__name">Douala</span>
+                <span class="zones__meta">Siège · Littoral</span>
+              </li>
+              <li class="zones__item"><span class="zones__name">Littoral</span><span class="zones__meta">Édéa, Nkongsamba, Loum</span></li>
+              <li class="zones__item"><span class="zones__name">Centre</span><span class="zones__meta">Yaoundé et périphérie</span></li>
+              <li class="zones__item"><span class="zones__name">Ouest</span><span class="zones__meta">Bafoussam, Dschang</span></li>
+              <li class="zones__item"><span class="zones__name">Sud-Ouest</span><span class="zones__meta">Limbé, Buéa, Kumba</span></li>
+              <li class="zones__item"><span class="zones__name">Sud &amp; Est</span><span class="zones__meta">Sur devis de déplacement</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!--@ src/partials/cta.html {
+        "surtitre": "Premier échange",
+        "titre": "Décrivez-nous la parcelle.",
+        "texte": "Un appel de cinq minutes suffit à savoir si votre situation relève d'un simple levé, d'un bornage complet ou d'une régularisation. Nous vous le dirons franchement, même quand la réponse est que vous n'avez pas besoin de nous tout de suite."
+      } -->
+    </main>
+
+    <!--@ src/partials/footer.html -->
+    <!--@ src/partials/chrome.html -->
+  </body>
+</html>

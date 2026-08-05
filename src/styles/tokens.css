@@ -1,0 +1,191 @@
+@layer tokens {
+  /*
+   * Palette tirée du monde du sujet, pas d'un générateur :
+   *  - le papier de tirage de plan pour les fonds,
+   *  - l'encre de plan (ardoise très légèrement verte) pour le texte,
+   *  - la latérite — le sol de Douala, la peinture des bornes — en accent,
+   *  - le vert du faisceau de visée pour tout ce qui est donnée mesurée.
+   *
+   * Chaque valeur textuelle a été vérifiée au contraste sur sa surface :
+   * le ratio est noté en commentaire. Les gris sont teintés vert, jamais
+   * neutres — des gris neutres à côté d'un accent chaud font « composant de
+   * bibliothèque ».
+   */
+  :root {
+    /* ---- pigments ------------------------------------------------------ */
+    --paper: #f4f1ea;
+    --paper-raised: #fbf9f5;
+    --paper-sunken: #eae5da;
+
+    --slate: #141a19;
+    --slate-raised: #1e2a27;
+
+    --laterite: #c0521e; /* trait, aplat, grand texte  — 4.17 / papier */
+    --laterite-ink: #a8431a; /* texte courant             — 5.35 / papier */
+    --laterite-bright: #e4762f; /* sur ardoise               — 5.82 / ardoise */
+
+    --visee: #0a8b78; /* trait de donnée */
+    --visee-ink: #07705f; /* texte                     — 5.33 / papier */
+    --visee-bright: #2fbfa6; /* sur ardoise               — 7.66 / ardoise */
+
+    /* ---- rôles sémantiques, surface claire ----------------------------- */
+    --surface: var(--paper);
+    --surface-raised: var(--paper-raised);
+    --surface-sunken: var(--paper-sunken);
+
+    --text: #141a19; /* 15.62 */
+    --text-2: #46534f; /*  7.13 */
+    --text-3: #5f6b67; /*  4.92 */
+    --text-invert: var(--paper);
+
+    --accent: var(--laterite);
+    --accent-text: var(--laterite-ink);
+    --accent-contrast: var(--paper); /* 5.35 sur --accent-text */
+
+    --data: var(--visee);
+    --data-text: var(--visee-ink);
+
+    --rule: #d8d2c6; /* filet décoratif */
+    --rule-strong: #c2b9a8;
+    --rule-ui: #928b7e; /* bordure de contrôle — 3.00 / papier */
+
+    --terrain-line: #141a19;
+    --terrain-line-opacity: 0.24;
+    --terrain-index: var(--laterite);
+    --terrain-index-opacity: 0.6;
+    --terrain-cote: var(--laterite-ink);
+    --terrain-knockout: var(--surface);
+
+    /* Chrome d'instrument : barre d'état, réticule, pied de page. Ces surfaces
+       restent sur l'ardoise quelle que soit la section derrière — elles ne
+       suivent donc pas la bascule des rôles, et ont besoin de leurs propres
+       valeurs. Contrastes vérifiés sur --slate. */
+    --chrome-surface: #141a19;
+    --chrome-text: #e8e6e0; /* 14.12 */
+    --chrome-text-2: #a9b5b1; /*  8.33 */
+    --chrome-text-3: #8b9a95; /*  5.87 */
+    --chrome-value: #2fbfa6; /*  7.66 */
+    --chrome-rule: #2b3a36;
+    --chrome-rule-strong: #5a6763;
+
+    --selection-bg: #f2d9c8;
+
+    /* ---- typographie --------------------------------------------------- */
+    --font-display: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
+    --font-text: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
+    --font-mono: 'Plex Mono', ui-monospace, 'SF Mono', 'Cascadia Mono', monospace;
+
+    /* Échelle fluide : le pas de base grimpe de 16 à 17 px, les titres
+       s'écartent beaucoup plus vite — c'est le contraste d'échelle qui fait
+       la hiérarchie, pas la couleur. */
+    --step--2: clamp(0.694rem, 0.68rem + 0.07vw, 0.735rem);
+    --step--1: clamp(0.833rem, 0.81rem + 0.12vw, 0.9rem);
+    --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+    --step-1: clamp(1.2rem, 1.14rem + 0.3vw, 1.375rem);
+    --step-2: clamp(1.44rem, 1.33rem + 0.55vw, 1.75rem);
+    --step-3: clamp(1.728rem, 1.53rem + 0.99vw, 2.25rem);
+    --step-4: clamp(2.074rem, 1.74rem + 1.67vw, 3rem);
+    /* Les deux plus grands corps sont plafonnés par le bas de façon à ce que
+       le mot le plus long du site — « incontestable. » — tienne dans 320 px
+       de large sans déborder. */
+    --step-5: clamp(2.125rem, 1.65rem + 2.38vw, 3.75rem);
+    --step-6: clamp(2.25rem, 1.6rem + 3.25vw, 5rem);
+
+    --leading-tight: 1.04;
+    --leading-snug: 1.18;
+    --leading-normal: 1.62;
+    --tracking-tight: -0.022em;
+    --tracking-flat: 0;
+    --tracking-wide: 0.08em;
+    --tracking-caps: 0.14em;
+
+    /* Largeur de colonne : au-delà de ~68 caractères, l'œil perd la ligne. */
+    --measure: 62ch;
+    --measure-tight: 44ch;
+
+    /* ---- espacement ---------------------------------------------------- */
+    --space-3xs: 0.25rem;
+    --space-2xs: 0.5rem;
+    --space-xs: 0.75rem;
+    --space-s: 1rem;
+    --space-m: 1.5rem;
+    --space-l: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+
+    /* Respiration verticale des sections, proportionnelle à la fenêtre. */
+    --section-y: clamp(3.5rem, 2rem + 7vw, 8rem);
+    --gutter: clamp(1.25rem, 0.6rem + 3vw, 3rem);
+    --shell: 78rem;
+    --shell-narrow: 56rem;
+    --header-h: 4rem;
+    --action-bar-h: 4.25rem;
+
+    /* ---- traits, rayons, ombres ---------------------------------------- */
+    --hairline: 1px;
+    --radius-0: 0;
+    --radius-1: 3px;
+    --radius-pill: 999px;
+
+    /* Le dessin technique ne porte pas d'ombre. Deux valeurs très basses
+       suffisent à décoller ce qui flotte réellement au-dessus de la page. */
+    --shadow-1: 0 1px 2px rgb(20 26 25 / 0.06);
+    --shadow-2: 0 12px 32px -12px rgb(20 26 25 / 0.22);
+
+    /* ---- mouvement ------------------------------------------------------ */
+    --dur-1: 150ms; /* micro-interaction */
+    --dur-2: 260ms; /* changement d'état */
+    --dur-3: 520ms; /* transition de vue */
+    --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+    /* ---- couches -------------------------------------------------------- */
+    --z-terrain: 0;
+    --z-content: 1;
+    --z-reticle: 40;
+    --z-status: 50;
+    --z-header: 60;
+    --z-menu: 70;
+
+    color-scheme: light;
+  }
+
+  /*
+   * Bascule vers l'ardoise. Elle ne réassigne que les rôles : aucun composant
+   * ne sait sur quelle surface il est posé. C'est ce qui matérialise la tension
+   * du projet — le terrain (papier) contre la donnée (écran de station).
+   */
+  .on-slate {
+    --surface: var(--slate);
+    --surface-raised: var(--slate-raised);
+    --surface-sunken: #101514;
+
+    --text: #e8e6e0; /* 14.12 */
+    --text-2: #a9b5b1; /*  8.33 */
+    --text-3: #8b9a95; /*  5.87 */
+    --text-invert: var(--slate);
+
+    --accent: var(--laterite-bright);
+    --accent-text: var(--laterite-bright); /* 5.82 */
+    --accent-contrast: var(--slate);
+
+    --data: var(--visee-bright);
+    --data-text: var(--visee-bright); /* 7.66 */
+
+    --rule: #293734;
+    --rule-strong: #3a4b47;
+    --rule-ui: #5a6763; /* 2.98 ≈ 3:1 sur ardoise */
+
+    --terrain-line: #9fb5af;
+    --terrain-line-opacity: 0.17;
+    --terrain-index: var(--visee-bright);
+    --terrain-index-opacity: 0.55;
+    --terrain-cote: var(--visee-bright);
+    --terrain-knockout: var(--surface);
+
+    --selection-bg: #1d4d45;
+
+    color-scheme: dark;
+  }
+}

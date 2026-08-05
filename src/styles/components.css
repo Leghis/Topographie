@@ -1,0 +1,517 @@
+@layer components {
+  /* ------------------------------------------------------- lien d'évitement */
+
+  .skip-link {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: var(--gutter);
+    z-index: calc(var(--z-header) + 1);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: var(--space-2xs) var(--space-s);
+    background: var(--slate);
+    color: var(--chrome-text);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-decoration: none;
+    transform: translateY(-120%);
+    transition: transform var(--dur-1) var(--ease-out);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
+
+  /* ------------------------------------------------------------- en-tête */
+
+  .site-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: var(--z-header);
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    border-block-end: var(--hairline) solid var(--rule);
+    backdrop-filter: blur(10px);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    min-height: var(--header-h);
+  }
+
+  /* --- marque --- */
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    min-height: 44px;
+    margin-inline-end: auto;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  /* Le nom et la mention légale s'empilent : en ligne, ils se coupaient au
+     milieu sur les petits écrans et doublaient la hauteur de l'en-tête. */
+  .brand__text {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .brand__mark {
+    flex: none;
+    width: 2.125rem;
+    height: 2.125rem;
+  }
+
+  .mark__contours {
+    stroke: var(--text-3);
+  }
+
+  .mark__index {
+    stroke: var(--laterite);
+  }
+
+  .mark__visee {
+    stroke: var(--visee);
+  }
+
+  .brand__name {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 650;
+    font-stretch: 112%;
+    letter-spacing: 0.01em;
+    line-height: 1;
+  }
+
+  .brand__legal {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--text-3);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  /* --- navigation --- */
+
+  .site-nav {
+    display: none;
+  }
+
+  .site-nav__list {
+    display: flex;
+    gap: clamp(var(--space-xs), 1.6vw, var(--space-m));
+  }
+
+  .site-nav__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--text-2);
+    font-size: var(--step--1);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .site-nav__link:hover {
+    color: var(--text);
+  }
+
+  /* La page courante est repérée par la couleur ET par un trait : jamais une
+     information portée par la seule couleur. */
+  .site-nav__link::after {
+    content: '';
+    position: absolute;
+    inset-block-end: 0.5rem;
+    inset-inline: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-2) var(--ease-out);
+  }
+
+  .site-nav__link[aria-current='page'] {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .site-nav__link[aria-current='page']::after,
+  .site-nav__link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .site-header__cta {
+    display: none;
+  }
+
+  /* --- bouton de menu + panneau mobile --- */
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding-inline: 0.75rem;
+    border: var(--hairline) solid var(--rule-ui);
+    border-radius: var(--radius-1);
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .nav-toggle__bars {
+    display: grid;
+    gap: 3px;
+    width: 14px;
+  }
+
+  .nav-toggle__bars span {
+    height: 1.5px;
+    background: currentColor;
+    transition: transform var(--dur-1) var(--ease-out);
+  }
+
+  .nav-toggle[aria-expanded='true'] .nav-toggle__bars span:first-child {
+    transform: translateY(4.5px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded='true'] .nav-toggle__bars span:nth-child(2) {
+    transform: scaleX(0);
+  }
+
+  .nav-toggle[aria-expanded='true'] .nav-toggle__bars span:last-child {
+    transform: translateY(-4.5px) rotate(-45deg);
+  }
+
+  .nav-panel {
+    position: fixed;
+    inset: var(--header-h) 0 0;
+    z-index: var(--z-menu);
+    display: grid;
+    align-content: start;
+    gap: var(--space-2xs);
+    padding: var(--space-l) var(--gutter) calc(var(--action-bar-h) + var(--space-xl));
+    overflow-y: auto;
+    background: var(--paper);
+    border-block-start: var(--hairline) solid var(--rule);
+  }
+
+  .nav-panel[hidden] {
+    display: none;
+  }
+
+  /* Au-delà de cette largeur la navigation complète tient dans l'en-tête :
+     le bouton de menu et son panneau n'ont plus de raison d'être. Placé après
+     les définitions qu'il neutralise, pour ne pas dépendre d'un poids de
+     sélecteur. */
+  @media (min-width: 60rem) {
+    .site-nav,
+    .site-header__cta {
+      display: block;
+    }
+
+    .nav-toggle,
+    .nav-panel {
+      display: none;
+    }
+  }
+
+  .nav-panel__link {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-s);
+    min-height: 52px;
+    padding-block: var(--space-2xs);
+    border-block-end: var(--hairline) solid var(--rule);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-stretch: 106%;
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
+    text-decoration: none;
+  }
+
+  .nav-panel__link[aria-current='page'] {
+    color: var(--accent-text);
+  }
+
+  .nav-panel__index {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: var(--tracking-wide);
+    color: var(--text-3);
+  }
+
+  /* ------------------------------------------------- barre d'action mobile */
+
+  /* Au Cameroun le premier contact se fait au téléphone ou sur WhatsApp.
+     Sur mobile, le bas de l'écran leur est donc réservé — pas aux
+     coordonnées géodésiques, qui reprennent leur place au-delà de 64rem. */
+  .action-bar {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: var(--z-status);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--hairline);
+    padding-block-end: env(safe-area-inset-bottom, 0);
+    background: var(--rule-strong);
+    border-block-start: var(--hairline) solid var(--rule-strong);
+  }
+
+  @media (min-width: 60rem) {
+    .action-bar {
+      display: none;
+    }
+  }
+
+  .action-bar__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: var(--action-bar-h);
+    background: var(--paper-raised);
+    color: var(--text);
+    font-size: var(--step--1);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .action-bar__item--accent {
+    background: var(--laterite-ink);
+    color: var(--paper);
+  }
+
+  .action-bar__item svg {
+    flex: none;
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  /* ------------------------------------------------------------- boutons */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.7rem 1.15rem;
+    border: var(--hairline) solid transparent;
+    border-radius: var(--radius-1);
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color var(--dur-1) var(--ease-out),
+      border-color var(--dur-1) var(--ease-out),
+      color var(--dur-1) var(--ease-out);
+  }
+
+  .btn svg {
+    flex: none;
+    width: 1.0625rem;
+    height: 1.0625rem;
+  }
+
+  .btn--primary {
+    background: var(--accent-text);
+    color: var(--accent-contrast);
+  }
+
+  .btn--primary:hover {
+    background: var(--text);
+    color: var(--surface);
+  }
+
+  .btn--ghost {
+    border-color: var(--rule-ui);
+    color: var(--text);
+  }
+
+  .btn--ghost:hover {
+    border-color: var(--text);
+    background: var(--surface-raised);
+    color: var(--text);
+  }
+
+  .btn--small {
+    padding: 0.45rem 0.85rem;
+    font-size: var(--step--2);
+  }
+
+  /* ------------------------------------------------------------ étiquettes */
+
+  /* Le vocabulaire du métier passe par le monospace : c'est lui qui fait la
+     différence entre une étiquette de site web et une étiquette d'instrument. */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+
+  .eyebrow--data {
+    color: var(--data-text);
+  }
+
+  .eyebrow--muted {
+    color: var(--text-3);
+  }
+
+  .eyebrow::before {
+    content: '';
+    flex: none;
+    width: 1.75rem;
+    height: var(--hairline);
+    background: currentColor;
+  }
+
+  .eyebrow--bare::before {
+    display: none;
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    border: var(--hairline) solid var(--rule-strong);
+    border-radius: var(--radius-1);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-3);
+    white-space: nowrap;
+  }
+
+  .tag--accent {
+    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    color: var(--accent-text);
+  }
+
+  .tag--data {
+    border-color: color-mix(in srgb, var(--data) 55%, transparent);
+    color: var(--data-text);
+  }
+
+  /* ------------------------------------------------------- apparition douce */
+
+  /* Un seul geste, joué une fois, de 14 px — pas un fondu sur toutes les
+     sections ni une entrée de 100 px en diaporama.
+
+     L'état masqué n'existe que si le script a posé `data-reveal` sur la racine.
+     Tant qu'il ne l'a pas fait, le contenu est simplement visible : c'est ce
+     qui garantit qu'une panne de JavaScript n'efface pas la page. */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal] .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition:
+        opacity var(--dur-3) var(--ease-out),
+        transform var(--dur-3) var(--ease-out);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    [data-reveal] .reveal[data-shown] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* ------------------------------------------------------------ pied de page */
+
+  /* Le pied de page réserve la hauteur de la barre fixe du bas — barre
+     d'action sur mobile, barre d'état géodésique au-delà. La réserve est prise
+     ici plutôt que sur <body> : sur <body> elle ferait apparaître une bande
+     claire sous le pied de page sombre. */
+  .site-footer {
+    padding-block: var(--space-2xl)
+      calc(var(--space-2xl) + var(--action-bar-h) + env(safe-area-inset-bottom, 0px));
+    background: var(--slate);
+    color: var(--chrome-text-2);
+  }
+
+  @media (min-width: 60rem) {
+    .site-footer {
+      padding-block-end: calc(var(--space-2xl) + 2.5rem);
+    }
+  }
+
+  .site-footer a {
+    color: var(--chrome-text);
+    text-decoration-color: var(--chrome-rule-strong);
+  }
+
+  .site-footer a:hover {
+    color: var(--visee-bright);
+  }
+
+  .site-footer__grid {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 48rem) {
+    .site-footer__grid {
+      grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+      gap: var(--space-l);
+    }
+  }
+
+  .site-footer__title {
+    margin-block-end: var(--space-s);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--chrome-text-3);
+  }
+
+  .site-footer__list {
+    display: grid;
+    gap: 0.5rem;
+    font-size: var(--step--1);
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-l);
+    margin-block-start: var(--space-2xl);
+    padding-block-start: var(--space-m);
+    border-block-start: var(--hairline) solid var(--chrome-rule);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--chrome-text-3);
+  }
+}

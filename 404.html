@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!--@ src/partials/head.html {
+      "titre": "Page introuvable — MLS TOPO SARL",
+      "description": "Cette page n'existe pas. Retrouvez les prestations, la méthode de bornage et les coordonnées de MLS TOPO SARL, cabinet de topographie à Douala.",
+      "chemin": "404.html"
+    } -->
+    <meta name="robots" content="noindex" />
+  </head>
+
+  <body>
+    <!--@ src/partials/header.html -->
+
+    <main id="contenu">
+      <section class="hero hero--compact">
+        <div class="terrain-field hero__terrain" data-draw>
+          <!--@ src/generated/terrain-band.svg -->
+        </div>
+
+        <div class="shell hero__inner">
+          <p class="eyebrow">Erreur 404</p>
+          <h1 class="hero__title hero__title--compact">Point hors emprise.</h1>
+          <p class="hero__lede">
+            Cette adresse ne correspond à aucune page du site. Elle a peut-être changé, ou le lien
+            que vous avez suivi comportait une erreur.
+          </p>
+          <p class="cluster hero__actions">
+            <a class="btn btn--primary" href="index.html">Revenir à l'accueil</a>
+            <a class="btn btn--ghost" href="services.html">Voir les prestations</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="shell">
+          <ul class="zones reveal" style="max-width: 40rem">
+            <li class="zones__item zones__item--base">
+              <span class="zones__name"><a href="services.html">Prestations</a></span>
+              <span class="zones__meta">Les 15 services</span>
+            </li>
+            <li class="zones__item">
+              <span class="zones__name"><a href="methode.html">Méthode</a></span>
+              <span class="zones__meta">Protocole de bornage</span>
+            </li>
+            <li class="zones__item">
+              <span class="zones__name"><a href="terrains.html">Terrains</a></span>
+              <span class="zones__meta">Vente</span>
+            </li>
+            <li class="zones__item">
+              <span class="zones__name"><a href="materiel.html">Matériel</a></span>
+              <span class="zones__meta">Appareils topographiques</span>
+            </li>
+            <li class="zones__item">
+              <span class="zones__name"><a href="contact.html">Contact</a></span>
+              <span class="zones__meta">697 55 76 89</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!--@ src/partials/footer.html -->
+    <!--@ src/partials/chrome.html -->
+  </body>
+</html>

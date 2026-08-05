@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.vite/
+
+# Produit par scripts/generate-terrain.mjs, exécuté avant chaque dev et chaque build.
+src/generated/

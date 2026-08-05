@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leghis.github.io/Topographie/sitemap.xml

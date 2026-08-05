@@ -1,0 +1,51 @@
+<!--
+  Chrome d'instrument, commun à toutes les pages.
+
+  Sur écran large : la barre d'état géodésique, qui suit le défilement comme un
+  cheminement du nord vers le sud du relief affiché.
+  Sur mobile : la barre d'action, parce qu'à Douala le premier contact se fait
+  au téléphone ou sur WhatsApp, pas dans un formulaire.
+-->
+
+<div class="geo-status" data-geo-status aria-hidden="true">
+  <span class="geo-status__field">
+    <span class="geo-status__key">SRC</span>
+    <span>WGS 84 / UTM 32N</span>
+    <span class="geo-status__epsg">EPSG:32632</span>
+  </span>
+  <span class="geo-status__field">
+    <span class="geo-status__key">X</span>
+    <span class="geo-status__value" data-geo="e">585 238</span>
+    <span class="geo-status__unit">m E</span>
+  </span>
+  <span class="geo-status__field">
+    <span class="geo-status__key">Y</span>
+    <span class="geo-status__value" data-geo="n">447 816</span>
+    <span class="geo-status__unit">m N</span>
+  </span>
+  <span class="geo-status__field">
+    <span class="geo-status__key">Z</span>
+    <span class="geo-status__value" data-geo="z">92,4</span>
+    <span class="geo-status__unit">m</span>
+  </span>
+  <span class="geo-status__spacer"></span>
+  <span class="geo-status__field">
+    <span class="geo-status__key">Équidistance</span>
+    <span>5 m</span>
+  </span>
+</div>
+
+<nav class="action-bar" aria-label="Nous joindre">
+  <a class="action-bar__item" href="tel:+237697557689">
+    <!--@ src/partials/icon-phone.html -->
+    Appeler
+  </a>
+  <a
+    class="action-bar__item action-bar__item--accent"
+    href="https://wa.me/237697557689?text=Bonjour%20MLS%20TOPO%2C%20je%20souhaite%20un%20devis."
+    rel="noopener"
+  >
+    <!--@ src/partials/icon-whatsapp.html -->
+    WhatsApp
+  </a>
+</nav>

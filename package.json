@@ -1,0 +1,27 @@
+{
+  "name": "mls-topo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Site vitrine de MLS TOPO SARL, cabinet de topographie et de geomatique a Douala, Cameroun",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leghis/Topographie.git"
+  },
+  "license": "UNLICENSED",
+  "scripts": {
+    "terrain": "node scripts/generate-terrain.mjs",
+    "dev": "npm run terrain && vite",
+    "build": "npm run terrain && vite build",
+    "preview": "vite preview",
+    "og": "node tools/make-og.mjs",
+    "audit": "node tools/audit.mjs && node tools/audit-interaction.mjs && node tools/audit-contraste.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "d3-contour": "^4.0.2",
+    "playwright": "^1.62.1",
+    "vite": "^8.2.0"
+  }
+}

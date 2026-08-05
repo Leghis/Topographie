@@ -1,0 +1,133 @@
+<!doctype html>
+<!--
+  Source de l'image de partage (Open Graph), rendue en 1200 × 630 par
+  tools/make-og.mjs vers public/og.png. Ce fichier n'est pas une page du site :
+  il ne figure pas dans les entrées de build.
+-->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>og</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <style>
+      body {
+        display: grid;
+        width: 1200px;
+        height: 630px;
+        margin: 0;
+        overflow: hidden;
+      }
+      .og {
+        position: relative;
+        display: grid;
+        align-content: space-between;
+        padding: 62px 72px;
+        overflow: hidden;
+        background: var(--paper);
+      }
+      .og__terrain {
+        --terrain-mask: linear-gradient(105deg, rgb(0 0 0 / 0.28) 30%, rgb(0 0 0 / 1) 100%);
+      }
+      .og__inner {
+        position: relative;
+        z-index: 1;
+      }
+      .og__title {
+        max-width: 15ch;
+        margin: 26px 0 0;
+        font-family: var(--font-display);
+        font-size: 78px;
+        font-weight: 640;
+        font-stretch: 118%;
+        letter-spacing: -0.028em;
+        line-height: 1.02;
+      }
+      .og__foot {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--rule-strong);
+      }
+      .og__services {
+        max-width: 46ch;
+        font-size: 20px;
+        line-height: 1.45;
+        color: var(--text-2);
+      }
+      .og__tel {
+        flex: none;
+        text-align: right;
+      }
+      .og__tel b {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 34px;
+        font-weight: 640;
+        font-stretch: 108%;
+        letter-spacing: -0.02em;
+        color: var(--laterite-ink);
+      }
+      .og__tel span {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-3);
+      }
+      .og__brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .og__brand .mark {
+        width: 46px;
+        height: 46px;
+      }
+      .og__name {
+        font-family: var(--font-display);
+        font-size: 27px;
+        font-weight: 660;
+        font-stretch: 112%;
+        letter-spacing: 0.01em;
+      }
+      .og__legal {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text-3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="og">
+      <div class="terrain-field og__terrain"><!--@ src/generated/terrain-hero.svg --></div>
+
+      <div class="og__inner">
+        <div class="og__brand">
+          <!--@ src/partials/mark.html -->
+          <div>
+            <div class="og__name">MLS TOPO</div>
+            <div class="og__legal">SARL · Douala, Cameroun</div>
+          </div>
+        </div>
+        <h1 class="og__title">Poser la limite exacte, et la rendre incontestable.</h1>
+      </div>
+
+      <div class="og__foot">
+        <p class="og__services">
+          Levé topographique · Bornage · Plan cadastral · Cartographie SIG · Relevé par drone ·
+          Suivi de chantier · Vente de terrains et d'appareils
+        </p>
+        <div class="og__tel">
+          <b>697 55 76 89</b>
+          <span>Appel &amp; WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

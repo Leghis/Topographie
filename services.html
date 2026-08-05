@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!--@ src/partials/head.html {
+      "titre": "Prestations — levé, bornage, SIG, suivi de chantier | MLS TOPO SARL",
+      "description": "Les quinze prestations de MLS TOPO SARL à Douala : levé topographique, bornage, nivellement, station totale, GNSS, drone, calcul de surfaces et volumes, plan cadastral, cartographie SIG, études de voiries, suivi de chantier, rapports techniques.",
+      "chemin": "services.html"
+    } -->
+  </head>
+
+  <body>
+    <!--@ src/partials/header.html -->
+
+    <main id="contenu">
+      <section class="page-head">
+        <div class="shell">
+          <p class="eyebrow">Prestations</p>
+          <h1 class="page-head__title">Quinze prestations,<br />une seule chaîne de mesure.</h1>
+          <p class="lede">
+            Chaque prestation est décrite par ce que nous faisons réellement sur place ou au bureau,
+            et par ce que vous recevez à la fin. Les délais et les prix dépendent de la surface, de
+            l'accessibilité du site et de la commune : ils sont chiffrés au devis.
+          </p>
+
+          <nav class="page-nav" aria-label="Sommaire des prestations">
+            <a href="#terrain"><span class="page-nav__ref">A</span> Sur le terrain <span class="page-nav__count">7</span></a>
+            <a href="#bureau"><span class="page-nav__ref">B</span> Au bureau <span class="page-nav__count">6</span></a>
+            <a href="#negoce"><span class="page-nav__ref">C</span> Négoce <span class="page-nav__count">2</span></a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- A — TERRAIN. Mise en page de carnet de station : numéro de point, -->
+      <!-- observation, livrable. C'est la forme du document du métier.      -->
+      <!-- ================================================================ -->
+      <section class="section" id="terrain">
+        <div class="shell">
+          <div class="section-head section-head--split reveal">
+            <div class="stack stack--s">
+              <p class="eyebrow">A · Sur le terrain</p>
+              <h2>La mesure</h2>
+            </div>
+            <p class="lede">
+              Tout se joue ici. Une limite mal levée ne se rattrape pas au bureau : elle se
+              retrouve dans le plan, puis dans le procès-verbal, puis devant le juge.
+            </p>
+          </div>
+
+          <ol class="carnet">
+            <li class="carnet__row reveal">
+              <p class="carnet__num">T.01</p>
+              <div class="carnet__body">
+                <h3>Levé topographique de terrain</h3>
+                <p>
+                  Nous relevons l'état des lieux complet : limites, bâtis, voiries, réseaux
+                  apparents, arbres remarquables, ruptures de pente. Le semis de points est
+                  rattaché au système national, pas à un repère local qui ne servirait qu'une fois.
+                </p>
+              </div>
+              <ul class="carnet__specs">
+                <li><span>Méthode</span> Station totale et GNSS</li>
+                <li><span>Livrable</span> Plan DWG et PDF, semis de points</li>
+              </ul>
+            </li>
+
+            <li class="carnet__row reveal">
+              <p class="carnet__num">T.02</p>
+              <div class="carnet__body">
+                <h3>Mesure parcellaire et bornage</h3>
+                <p>
+                  Délimitation, matérialisation des bornes et levé contradictoire en présence des
+                  riverains. Nous couvrons aussi la reconstitution de limites effacées et le
+                  morcellement d'un titre existant.
+                </p>
+              </div>
+              <ul class="carnet__specs">
+                <li><span>Cadre</span> Décret n° 76-165 du 27 avril 1976</li>
+                <li><span>Livrable</span> Plan de bornage et procès-verbal</li>
+              </ul>
+            </li>
+
+            <li class="carnet__row reveal">
+              <p class="carnet__num">T.03</p>
+              <div class="carnet__body">
+                <h3>Relevé altimétrique</h3>
+                <p>
+                  Cotes rattachées, profils en long et en travers, courbes de niveau. Indispensable
+                  avant tout projet de terrassement, d'assainissement ou d'implantation en pente —
+                  et à Douala, la question de l'eau se pose partout.
+                </p>
+              </div>
+              <ul class="carnet__specs">
+                <li><span>Sortie</span> Courbes de niveau, profils</li>
+                <li><span>Livrable</span> Modèle numérique de terrain</li>
+              </ul>
+            </li>
+
+            <li class="carnet__row reveal">
+              <p class="carnet__num">T.04</p>
+              <div class="carnet__body">
+                <h3>Nivellement de terrain</h3>
+                <p>
+                  Cheminement au niveau optique entre repères, avec fermeture contrôlée. C'est la
+                  méthode la plus sûre quand la précision verticale prime : contrôle de dalles,
+                  pentes d'écoulement, implantation de seuils.
+                </p>
+              </div>
+              <ul class="carnet__specs">
+                <li><span>Méthode</span> Cheminement fermé, double lecture</li>
+                <li><span>Livrable</span> Carnet de nivellement et cotes</li>
+              </ul>
+            </li>
+
+            <li class="carnet__row reveal">
+              <p class="carnet__num">T.05</p>
+              <div class="carnet__body">
+                <h3>Utilisation de la station totale</h3>
+                <p>
+                  Polygonale, rayonnement, implantation d'axes et de points de construction. Nous
+                  intervenons aussi en appui d'entreprises qui ont le chantier mais pas l'opérateur
+                  ni l'instrument.
+                </p>
+              </div>
+              <ul class="carnet__specs">
+                <li><span>Usage</span> Levé, implantation, contrôle</li>
+                <li><span>Livrable</span> Fichier de points, carnet de station</li>
+              </ul>
+            </li>
+
+            <li class="carnet__row reveal">
+              <p class="carnet__num">T.06</p>
+              <div class="carnet__body">
+                <h3>Traitement des données GPS</h3>
+                <p>
+                  Post-traitement des sessions GNSS, compensation du réseau, transformation entre
+                  systèmes et contrôle de fermeture. Nous reprenons aussi des jeux de données levés
+                  par d'autres quand le rattachement est douteux.
+                </p>
+              </div>
+              <ul class="carnet__specs">
+                <li><span>Systèmes</span> WGS 84, UTM 32N et 33N</li>
+                <li><span>Livrable</span> Coordonnées compensées, note de calcul</li>
+              </ul>
+            </li>
+
+            <li class="carnet__row reveal">
+              <p class="carnet__num">T.07</p>
+              <div class="carnet__body">
+                <h3>Relevé par drone</h3>
+                <p>
+                  Photogrammétrie aérienne pour les grandes emprises, les carrières et les sites
+                  difficiles d'accès. Chaque vol de travail aérien est soumis à autorisation de la
+                  CCAA : nous intégrons le délai d'instruction au planning dès le devis.
+                </p>
+              </div>
+              <ul class="carnet__specs">
+                <li><span>Cadre</span> Autorisation CCAA, plafond 120 m, de jour</li>
+                <li><span>Livrable</span> Orthophoto, nuage de points, MNT</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- B — BUREAU. Mise en page de gestionnaire de couches SIG : case,   -->
+      <!-- nom, type de géométrie, format. Autre document, autre forme.      -->
+      <!-- ================================================================ -->
+      <section class="section section--slate on-slate" id="bureau">
+        <div class="terrain-field section__terrain" aria-hidden="true">
+          <!--@ src/generated/terrain-band.svg -->
+        </div>
+
+        <div class="shell bureau">
+          <div class="section-head section-head--split reveal">
+            <div class="stack stack--s">
+              <p class="eyebrow eyebrow--data">B · Au bureau</p>
+              <h2>La donnée</h2>
+            </div>
+            <p class="lede">
+              Les points levés deviennent des surfaces, des volumes, des couches et des pièces
+              opposables. Chaque livraison est accompagnée de sa note de calcul : vous devez
+              pouvoir refaire le chemin.
+            </p>
+          </div>
+
+          <ul class="couches reveal">
+            <li class="couche">
+              <span class="couche__box" aria-hidden="true"></span>
+              <span class="couche__name">Calcul de surfaces et de volumes</span>
+              <span class="couche__geom">Polygone</span>
+              <span class="couche__fmt">PDF · XLSX</span>
+              <p class="couche__text">
+                Superficie contradictoire d'une parcelle, cubatures de déblai et de remblai,
+                métrés de terrassement. Le calcul est présenté avec la méthode retenue, pas
+                seulement avec son résultat.
+              </p>
+            </li>
+
+            <li class="couche">
+              <span class="couche__box" aria-hidden="true"></span>
+              <span class="couche__name">Plan cadastral</span>
+              <span class="couche__geom">Polygone</span>
+              <span class="couche__fmt">DWG · PDF</span>
+              <p class="couche__text">
+                Établissement et mise à jour du plan parcellaire, report des limites levées,
+                identification des riverains. Pièce de base de tout dossier déposé aux Domaines.
+              </p>
+            </li>
+
+            <li class="couche">
+              <span class="couche__box" aria-hidden="true"></span>
+              <span class="couche__name">Cartographie SIG</span>
+              <span class="couche__geom">Multi-couches</span>
+              <span class="couche__fmt">SHP · GeoJSON · QGZ</span>
+              <p class="couche__text">
+                Structuration de vos données en couches interrogeables : parcellaire, réseaux,
+                équipements, occupation du sol. Livré dans un projet ouvrable, sans licence à
+                acheter pour le consulter.
+              </p>
+            </li>
+
+            <li class="couche">
+              <span class="couche__box" aria-hidden="true"></span>
+              <span class="couche__name">Études de routes et de voiries</span>
+              <span class="couche__geom">Ligne</span>
+              <span class="couche__fmt">DWG · PDF</span>
+              <p class="couche__text">
+                Levé d'emprise, profils en long et en travers, tracé en plan, cubatures. Depuis la
+                piste de désenclavement jusqu'à la voirie de lotissement.
+              </p>
+            </li>
+
+            <li class="couche">
+              <span class="couche__box" aria-hidden="true"></span>
+              <span class="couche__name">Suivi et contrôle de chantier</span>
+              <span class="couche__geom">Point</span>
+              <span class="couche__fmt">PDF · DWG</span>
+              <p class="couche__text">
+                Implantation des ouvrages, contrôle des niveaux et des axes au fil de l'exécution,
+                récolement en fin de travaux. Les écarts sont relevés quand ils coûtent encore peu
+                à corriger.
+              </p>
+            </li>
+
+            <li class="couche">
+              <span class="couche__box" aria-hidden="true"></span>
+              <span class="couche__name">Rapports techniques</span>
+              <span class="couche__geom">Document</span>
+              <span class="couche__fmt">PDF signé</span>
+              <p class="couche__text">
+                Mémoire de la mission : matériel employé, méthode, rattachement, contrôles réalisés
+                et précisions obtenues. C'est la pièce qui rend votre dossier défendable.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- C — NÉGOCE. Encore une autre forme : deux fiches.                 -->
+      <!-- ================================================================ -->
+      <section class="section" id="negoce">
+        <div class="shell">
+          <div class="section-head reveal">
+            <p class="eyebrow">C · Négoce</p>
+            <h2>Le foncier et l'instrument</h2>
+            <p class="lede">
+              Deux activités qui prolongent le métier plutôt qu'elles ne s'y ajoutent : nous
+              vendons des terrains que nous avons mesurés, et le matériel que nous utilisons
+              nous-mêmes.
+            </p>
+          </div>
+
+          <div class="pole__pair reveal">
+            <a class="pole__offer" href="terrains.html">
+              <span class="pole__offer-title">N.01 · Vente de terrains</span>
+              <span class="pole__offer-text">
+                Parcelles présentées avec leur superficie réellement mesurée, leur plan de
+                situation et leur statut juridique exact — titre foncier, certificat, ou
+                procédure en cours, dit tel quel.
+              </span>
+            </a>
+            <a class="pole__offer" href="materiel.html">
+              <span class="pole__offer-title">N.02 · Vente d'appareils topographiques</span>
+              <span class="pole__offer-text">
+                Stations totales, récepteurs GNSS, niveaux, trépieds, mires et prismes. Livrés
+                vérifiés, avec la prise en main faite avec votre opérateur.
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!--@ src/partials/cta.html {
+        "surtitre": "Devis",
+        "titre": "Quelle prestation vous concerne ?",
+        "texte": "Si vous hésitez entre plusieurs, appelez : en quelques questions sur la surface, la commune et ce que vous voulez obtenir, nous vous dirons laquelle s'impose — et lesquelles vous pouvez éviter."
+      } -->
+    </main>
+
+    <!--@ src/partials/footer.html -->
+    <!--@ src/partials/chrome.html -->
+  </body>
+</html>

@@ -1,0 +1,781 @@
+@layer pages {
+  /* ========================================================================
+     OUVERTURE
+     ======================================================================== */
+
+  .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(var(--space-2xl), 9vw, 7rem) clamp(var(--space-2xl), 8vw, 6rem);
+    border-block-end: var(--hairline) solid var(--rule);
+  }
+
+  /* Le relief s'estompe vers le bas : le texte et le cartouche restent nets
+     sans qu'on ait à poser un voile opaque par-dessus le dessin. */
+  .hero__terrain {
+    --terrain-mask: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 1) 0%,
+      rgb(0 0 0 / 0.95) 38%,
+      rgb(0 0 0 / 0.4) 72%,
+      rgb(0 0 0 / 0.15) 100%
+    );
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: var(--z-content);
+  }
+
+  .hero__title {
+    max-width: 17ch;
+    margin-block-start: var(--space-m);
+    font-size: var(--step-6);
+    /* La largeur étendue est le geste du titre, mais elle allonge les mots :
+       on ne l'ouvre qu'une fois la place disponible. */
+    font-stretch: 104%;
+    font-weight: 630;
+  }
+
+  @media (min-width: 40rem) {
+    .hero__title {
+      font-stretch: 112%;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero__title {
+      font-stretch: 120%;
+    }
+  }
+
+  .hero__lede {
+    max-width: 48ch;
+    margin-block-start: var(--space-m);
+    font-size: var(--step-1);
+    line-height: 1.5;
+    color: var(--text-2);
+  }
+
+  .hero__actions {
+    --cluster-gap: var(--space-2xs);
+    margin-block-start: var(--space-l);
+  }
+
+  /* --- cartouche -----------------------------------------------------------
+     Le bloc de titre d'une feuille de plan : cadre, cellules séparées d'un
+     filet, libellés en petit corps. Ici, la carte d'identité du cabinet. */
+  .cartouche {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(9.5rem, 100%), 1fr));
+    gap: var(--hairline);
+    max-width: 58rem;
+    margin-block-start: clamp(var(--space-xl), 6vw, var(--space-3xl));
+    border: var(--hairline) solid var(--rule-strong);
+    background: var(--rule-strong);
+  }
+
+  .cartouche__cell {
+    padding: 0.7rem 0.85rem;
+    background: color-mix(in srgb, var(--paper-raised) 88%, transparent);
+  }
+
+  .cartouche dt {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .cartouche dd {
+    margin: 0.3rem 0 0;
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  .hero--compact {
+    padding-block: clamp(var(--space-xl), 7vw, 5rem) clamp(var(--space-xl), 6vw, 4.5rem);
+  }
+
+  .hero__title--compact {
+    font-size: var(--step-5);
+    font-stretch: 116%;
+  }
+
+  /* ========================================================================
+     EN-TÊTE DE PAGE INTÉRIEURE
+     Plus sobre que l'ouverture de l'accueil : pas de relief, un filet et de
+     l'air. Le relief est un événement, pas un fond permanent.
+     ======================================================================== */
+
+  .page-head {
+    padding-block: clamp(var(--space-xl), 6vw, 5rem) clamp(var(--space-l), 4vw, 3rem);
+    border-block-end: var(--hairline) solid var(--rule);
+    background: var(--surface-raised);
+  }
+
+  .page-head__title {
+    max-width: 20ch;
+    margin-block: var(--space-s) var(--space-m);
+    font-size: var(--step-5);
+    font-stretch: 116%;
+  }
+
+  .page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    margin-block-start: var(--space-l);
+  }
+
+  .page-nav a {
+    display: inline-flex;
+    align-items: baseline;
+    min-height: 44px;
+    gap: 0.55rem;
+    padding: 0.6rem 0.85rem;
+    border: var(--hairline) solid var(--rule-ui);
+    border-radius: var(--radius-1);
+    color: var(--text);
+    font-size: var(--step--1);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .page-nav a:hover {
+    border-color: var(--accent);
+    color: var(--accent-text);
+  }
+
+  .page-nav__ref,
+  .page-nav__count {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-wide);
+    color: var(--text-3);
+  }
+
+  .page-nav__ref {
+    color: var(--accent-text);
+  }
+
+  /* ========================================================================
+     CARNET DE STATION
+     La forme du document de terrain : un numéro de point, l'observation, et
+     ce qui en sort. Trois colonnes sur écran large, empilées sur mobile.
+     ======================================================================== */
+
+  .carnet {
+    border-block-start: 2px solid var(--text);
+  }
+
+  .carnet__row {
+    display: grid;
+    gap: var(--space-2xs) var(--space-l);
+    padding-block: var(--space-m);
+    border-block-end: var(--hairline) solid var(--rule);
+  }
+
+  @media (min-width: 52rem) {
+    .carnet__row {
+      grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 17rem);
+      align-items: start;
+    }
+  }
+
+  .carnet__num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--accent-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .carnet__body h3 {
+    font-size: var(--step-2);
+    font-stretch: 106%;
+  }
+
+  .carnet__body p {
+    max-width: 54ch;
+    margin-block-start: 0.5rem;
+    color: var(--text-2);
+  }
+
+  .carnet__specs {
+    display: grid;
+    gap: 0.45rem;
+    align-content: start;
+    padding-block-start: 0.35rem;
+  }
+
+  @media (min-width: 52rem) {
+    .carnet__specs {
+      padding-inline-start: var(--space-s);
+      border-inline-start: var(--hairline) solid var(--rule);
+    }
+  }
+
+  .carnet__specs li {
+    font-size: var(--step--1);
+    line-height: 1.45;
+    color: var(--text-2);
+  }
+
+  .carnet__specs span {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  /* ========================================================================
+     GESTIONNAIRE DE COUCHES
+     La forme du panneau de couches d'un SIG : une case de visibilité, un nom,
+     un type de géométrie, un format. Reconnaissable au premier coup d'œil par
+     quiconque a ouvert un projet QGIS.
+     ======================================================================== */
+
+  .couches {
+    border-block-start: var(--hairline) solid var(--rule-strong);
+  }
+
+  .couche {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.35rem var(--space-xs);
+    padding-block: var(--space-s);
+    border-block-end: var(--hairline) solid var(--rule);
+  }
+
+  @media (min-width: 56rem) {
+    .couche {
+      grid-template-columns: auto minmax(0, 15rem) 7.5rem minmax(0, 10rem) minmax(0, 1fr);
+      align-items: baseline;
+      gap: var(--space-s);
+    }
+  }
+
+  .couche__box {
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid var(--data);
+    background: color-mix(in srgb, var(--data) 22%, transparent);
+    transform: translateY(1px);
+  }
+
+  .couche__name {
+    grid-column: 2 / -1;
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 600;
+    font-stretch: 104%;
+    letter-spacing: var(--tracking-tight);
+    color: var(--text);
+  }
+
+  .couche__geom,
+  .couche__fmt {
+    grid-column: 2 / -1;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .couche__text {
+    grid-column: 2 / -1;
+    max-width: 52ch;
+    font-size: var(--step--1);
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+
+  @media (min-width: 56rem) {
+    .couche__name,
+    .couche__geom,
+    .couche__fmt,
+    .couche__text {
+      grid-column: auto;
+    }
+
+    .couche__geom {
+      color: var(--data-text);
+    }
+  }
+
+  /* ========================================================================
+     CONTRÔLES AVANT VENTE
+     ======================================================================== */
+
+  .controles {
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  @media (min-width: 44rem) {
+    .controles {
+      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+      gap: var(--space-xl) var(--space-l);
+    }
+  }
+
+  .controle {
+    padding-block-start: var(--space-s);
+    border-block-start: var(--hairline) solid var(--rule-strong);
+  }
+
+  .controle__num {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    color: var(--accent-text);
+  }
+
+  .controle h3 {
+    margin-block: 0.5rem 0.5rem;
+    font-size: var(--step-1);
+    font-stretch: 104%;
+  }
+
+  .controle p {
+    max-width: 48ch;
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+
+  /* ========================================================================
+     ENCART D'AVERTISSEMENT
+     ======================================================================== */
+
+  .encart {
+    padding: var(--space-m);
+    border: var(--hairline) solid var(--accent);
+    background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+  }
+
+  .encart__label {
+    margin-block-end: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+
+  .encart p:last-child {
+    max-width: 52ch;
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+
+  /* ========================================================================
+     LIVRABLES
+     ======================================================================== */
+
+  .livrables {
+    display: grid;
+    gap: 0;
+    border-block-start: 2px solid var(--text);
+  }
+
+  @media (min-width: 48rem) {
+    .livrables {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-xl);
+    }
+  }
+
+  .livrables li {
+    display: grid;
+    grid-template-columns: 4.25rem minmax(0, 1fr);
+    gap: var(--space-s);
+    align-items: baseline;
+    padding-block: 0.85rem;
+    border-block-end: var(--hairline) solid var(--rule);
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+
+  .livrables__fmt {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-wide);
+    color: var(--accent-text);
+  }
+
+  /* ========================================================================
+     CONTACT
+     ======================================================================== */
+
+  .contacts {
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  @media (min-width: 52rem) {
+    .contacts {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-l);
+    }
+  }
+
+  .contacts__item {
+    display: grid;
+    align-content: start;
+    gap: 0.5rem;
+    padding-block-start: var(--space-s);
+    border-block-start: 2px solid var(--text);
+  }
+
+  .contacts__label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .contacts__value {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    font-weight: 630;
+    font-stretch: 110%;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.1;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  a.contacts__value:hover {
+    color: var(--accent-text);
+  }
+
+  .contacts__note {
+    max-width: 38ch;
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+
+  /* ========================================================================
+     LES TROIS MÉTIERS
+     Grille volontairement inégale : c'est l'asymétrie qui hiérarchise.
+     ======================================================================== */
+
+  .poles {
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  @media (min-width: 60rem) {
+    .poles {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--space-xl) var(--space-l);
+    }
+
+    .pole--large {
+      grid-column: span 7;
+    }
+
+    .pole--medium {
+      grid-column: span 5;
+    }
+
+    .pole--wide {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .pole {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-block-start: var(--space-s);
+    border-block-start: 2px solid var(--text);
+  }
+
+  .pole--wide {
+    border-block-start-color: var(--accent);
+  }
+
+  .pole__ref {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-caps);
+    color: var(--accent-text);
+  }
+
+  .pole__title {
+    font-size: var(--step-3);
+    font-stretch: 110%;
+  }
+
+  .pole__text {
+    max-width: 46ch;
+    color: var(--text-2);
+  }
+
+  .pole__list {
+    display: grid;
+    gap: 0;
+    margin-block-start: var(--space-2xs);
+    border-block-start: var(--hairline) solid var(--rule);
+  }
+
+  @media (min-width: 34rem) {
+    .pole--large .pole__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-l);
+    }
+  }
+
+  .pole__list li {
+    padding-block: 0.55rem;
+    border-block-end: var(--hairline) solid var(--rule);
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+
+  /* La puce reprend le repère d'un point levé : un petit carré, pas un rond. */
+  .pole__list li::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-inline-end: 0.6rem;
+    vertical-align: 0.12em;
+    background: var(--accent);
+  }
+
+  .pole__link {
+    display: flex;
+    align-items: flex-end;
+    min-height: 44px;
+    margin-block-start: auto;
+    padding-block: var(--space-xs) 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--accent-text);
+  }
+
+  .pole__link::after {
+    content: ' →';
+  }
+
+  .pole__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+
+  .pole__pair {
+    display: grid;
+    gap: var(--space-s);
+    margin-block-start: var(--space-2xs);
+  }
+
+  @media (min-width: 48rem) {
+    .pole__pair {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .pole__offer {
+    display: grid;
+    gap: 0.4rem;
+    padding: var(--space-m);
+    border: var(--hairline) solid var(--rule-strong);
+    background: var(--surface-raised);
+    text-decoration: none;
+    color: var(--text);
+    transition:
+      border-color var(--dur-1) var(--ease-out),
+      background-color var(--dur-1) var(--ease-out);
+  }
+
+  .pole__offer:hover {
+    border-color: var(--accent);
+    background: var(--paper);
+    color: var(--text);
+  }
+
+  .pole__offer-title {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 600;
+    font-stretch: 104%;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .pole__offer-text {
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+
+  /* ========================================================================
+     PROTOCOLE DE BORNAGE
+     ======================================================================== */
+
+  .protocole {
+    display: grid;
+    gap: 0;
+  }
+
+  .protocole__step {
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    gap: var(--space-s);
+    padding-block: var(--space-m);
+    border-block-start: var(--hairline) solid var(--rule);
+  }
+
+  .protocole__step:last-child {
+    border-block-end: var(--hairline) solid var(--rule);
+  }
+
+  .protocole__num {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent-text);
+    letter-spacing: 0.06em;
+  }
+
+  .protocole__step h3 {
+    font-size: var(--step-1);
+    font-stretch: 102%;
+  }
+
+  .protocole__step p {
+    margin-block-start: 0.4rem;
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+
+  /* ========================================================================
+     SECTION ARDOISE — LA MESURE
+     ======================================================================== */
+
+  .section__terrain {
+    --terrain-mask: linear-gradient(to bottom, rgb(0 0 0 / 0.25), rgb(0 0 0 / 0.9));
+  }
+
+  .mesure {
+    position: relative;
+    z-index: var(--z-content);
+  }
+
+  .fiche {
+    display: grid;
+    align-content: start;
+    gap: 0.35rem;
+    padding: var(--space-m);
+    border: var(--hairline) solid var(--rule);
+    background: color-mix(in srgb, var(--surface-raised) 72%, transparent);
+  }
+
+  .fiche__key {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .fiche__value {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 600;
+    font-stretch: 106%;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.1;
+    color: var(--data-text);
+  }
+
+  .fiche__note {
+    font-size: var(--step--1);
+    line-height: 1.55;
+    color: var(--text-2);
+  }
+
+  .mesure__note {
+    max-width: 68ch;
+    margin-block-start: var(--space-xl);
+    padding-inline-start: var(--space-s);
+    border-inline-start: 2px solid var(--rule-strong);
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+
+  /* ========================================================================
+     ZONES D'INTERVENTION
+     ======================================================================== */
+
+  .zones {
+    border-block-start: 2px solid var(--text);
+  }
+
+  .zones__item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2xs);
+    padding-block: 0.8rem;
+    border-block-end: var(--hairline) solid var(--rule);
+  }
+
+  .zones__name {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 600;
+    font-stretch: 104%;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .zones__item--base .zones__name {
+    color: var(--accent-text);
+  }
+
+  .zones__meta {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--text-3);
+  }
+
+  /* ========================================================================
+     APPEL FINAL
+     ======================================================================== */
+
+  .cta {
+    border-block-start: var(--hairline) solid var(--rule);
+    background: var(--surface-sunken);
+  }
+
+  .cta__inner {
+    max-width: 46rem;
+  }
+
+  .cta__title {
+    font-size: var(--step-4);
+    font-stretch: 114%;
+  }
+
+  .cta__note {
+    max-width: 54ch;
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+}

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!--@ src/partials/head.html {
+      "titre": "Contact — géomètre-topographe à Douala | MLS TOPO SARL",
+      "description": "Joindre MLS TOPO SARL à Douala : 697 55 76 89 et 652 12 78 79, WhatsApp direct. Levés, bornages, cartographie SIG et suivi de chantier partout au Cameroun.",
+      "chemin": "contact.html"
+    } -->
+  </head>
+
+  <body>
+    <!--@ src/partials/header.html -->
+
+    <main id="contenu">
+      <section class="hero hero--compact" data-reticle-zone>
+        <div class="terrain-field hero__terrain" data-draw>
+          <!--@ src/generated/terrain-hero.svg -->
+        </div>
+
+        <div class="reticle" data-reticle>
+          <div class="reticle__frame">
+            <div class="reticle__line reticle__line--h"></div>
+            <div class="reticle__line reticle__line--v"></div>
+            <div class="reticle__mark"></div>
+            <div class="reticle__readout">
+              <dl>
+                <dt>X</dt>
+                <dd><span data-geo="e">585 238</span> E</dd>
+                <dt>Y</dt>
+                <dd><span data-geo="n">447 816</span> N</dd>
+                <dt>Z</dt>
+                <dd><span data-geo="z">92,4</span> m</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="shell hero__inner">
+          <p class="eyebrow">Contact</p>
+          <h1 class="hero__title hero__title--compact">Appelez.<br />C'est plus rapide.</h1>
+          <p class="hero__lede">
+            Nous n'avons pas mis de formulaire sur ce site. Un échange de deux minutes au téléphone
+            règle ce qu'un formulaire ferait traîner trois jours — et vous saurez tout de suite si
+            votre situation relève d'un levé simple ou d'une procédure complète.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- Les moyens de nous joindre                                        -->
+      <!-- ================================================================ -->
+      <section class="section">
+        <div class="shell">
+          <ul class="contacts">
+            <li class="contacts__item reveal">
+              <p class="contacts__label">Ligne principale</p>
+              <a class="contacts__value" href="tel:+237697557689">697 55 76 89</a>
+              <p class="contacts__note">
+                Indicatif international : +237 697 55 76 89. Appel ou WhatsApp, c'est le même
+                numéro.
+              </p>
+              <p class="cluster" style="--cluster-gap: var(--space-3xs)">
+                <a class="btn btn--primary btn--small" href="tel:+237697557689">
+                  <!--@ src/partials/icon-phone.html -->
+                  Appeler
+                </a>
+                <a
+                  class="btn btn--ghost btn--small"
+                  href="https://wa.me/237697557689?text=Bonjour%20MLS%20TOPO%2C%20je%20souhaite%20un%20devis."
+                  rel="noopener"
+                >
+                  <!--@ src/partials/icon-whatsapp.html -->
+                  WhatsApp
+                </a>
+              </p>
+            </li>
+
+            <li class="contacts__item reveal" style="--reveal-delay: 80ms">
+              <p class="contacts__label">Seconde ligne</p>
+              <a class="contacts__value" href="tel:+237652127879">652 12 78 79</a>
+              <p class="contacts__note">
+                Indicatif international : +237 652 12 78 79. À utiliser si la première ligne ne
+                répond pas — nous sommes souvent sur le terrain.
+              </p>
+              <p class="cluster" style="--cluster-gap: var(--space-3xs)">
+                <a class="btn btn--ghost btn--small" href="tel:+237652127879">
+                  <!--@ src/partials/icon-phone.html -->
+                  Appeler
+                </a>
+              </p>
+            </li>
+
+            <li class="contacts__item reveal" style="--reveal-delay: 160ms">
+              <p class="contacts__label">Où nous sommes</p>
+              <p class="contacts__value contacts__value--plain">Douala, Littoral</p>
+              <p class="contacts__note">
+                Cameroun. Nous nous déplaçons sur l'ensemble du territoire ; le déplacement est
+                chiffré à part, jamais noyé dans le prix de la prestation.
+              </p>
+              <p class="cluster" style="--cluster-gap: var(--space-3xs)">
+                <a class="btn btn--ghost btn--small" href="index.html#zone">Voir les zones</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- Préparer l'appel                                                  -->
+      <!-- ================================================================ -->
+      <section class="section section--slate on-slate" id="preparer">
+        <div class="terrain-field section__terrain" aria-hidden="true">
+          <!--@ src/generated/terrain-band.svg -->
+        </div>
+
+        <div class="shell mesure">
+          <div class="section-head section-head--split reveal">
+            <div class="stack stack--s">
+              <p class="eyebrow eyebrow--data">Avant d'appeler</p>
+              <h2>Quatre informations<br />et nous pouvons chiffrer.</h2>
+            </div>
+            <p class="lede">
+              Vous n'avez besoin d'aucun document pour nous appeler. Mais si vous avez ces quatre
+              éléments sous la main, nous pouvons vous donner un ordre de prix dès le premier
+              échange plutôt qu'après une visite.
+            </p>
+          </div>
+
+          <div class="grid" style="--grid-min: 14rem">
+            <article class="fiche reveal">
+              <p class="fiche__key">01</p>
+              <p class="fiche__value">La localisation</p>
+              <p class="fiche__note">
+                Commune et quartier, ou un point de repère connu. Cela détermine le déplacement et
+                la délégation compétente.
+              </p>
+            </article>
+            <article class="fiche reveal" style="--reveal-delay: 70ms">
+              <p class="fiche__key">02</p>
+              <p class="fiche__value">La surface</p>
+              <p class="fiche__note">
+                Même approximative. Une parcelle de 400 m² et un site de cinq hectares ne se lèvent
+                pas dans la même journée.
+              </p>
+            </article>
+            <article class="fiche reveal" style="--reveal-delay: 140ms">
+              <p class="fiche__key">03</p>
+              <p class="fiche__value">Les pièces existantes</p>
+              <p class="fiche__note">
+                Titre foncier, ancien plan, certificat, procès-verbal. Même incomplet, même ancien :
+                cela change beaucoup le travail à faire.
+              </p>
+            </article>
+            <article class="fiche reveal" style="--reveal-delay: 210ms">
+              <p class="fiche__key">04</p>
+              <p class="fiche__value">Le but</p>
+              <p class="fiche__note">
+                Vendre, construire, obtenir un titre, régler un différend avec un voisin. Le but
+                décide de la prestation, pas l'inverse.
+              </p>
+            </article>
+          </div>
+
+          <p class="mesure__note reveal">
+            Si votre demande n'est pas de notre ressort — un acte notarié, un permis de bâtir, une
+            procédure contentieuse — nous vous le dirons et nous vous orienterons. Cela nous coûte
+            un dossier et cela vous épargne des mois.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!--@ src/partials/footer.html -->
+    <!--@ src/partials/chrome.html -->
+  </body>
+</html>
